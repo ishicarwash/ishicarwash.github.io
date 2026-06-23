@@ -13,36 +13,88 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f3f4f9; /* Material M3 Surface Container */
+            background-color: #11141a; /* Elite deep dark slate fallback */
+            position: relative;
+        }
+
+        /* Dark premium stealth background image implementation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.postimg.cc/j5PjGxBG/Gemini-Generated-Image-yqvx0uyqvx0uyqvx.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.22; /* Clear visibility of the car and graphics */
+            z-index: -1;
+        }
+
+        /* Active selection link element style */
+        .lang-btn.active {
+            color: #0b57d0;
+            font-weight: 900;
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="text-[#1f1f1f] antialiased selection:bg-[#d3e3fd] min-h-screen flex flex-col">
+<body class="text-[#1f1f1f] antialiased selection:bg-[#d3e3fd] min-h-screen flex flex-col relative">
 
-    <header class="sticky top-0 z-50 flex h-16 w-full items-center justify-between bg-[#f0f4f9] px-4 shadow-sm border-b border-slate-100 md:px-8 shrink-0">
-        <div class="flex items-center gap-2">
-            <span class="material-icons-round text-[#0b57d0] text-2xl">local_car_wash</span>
-            <span class="text-lg font-bold tracking-tight text-[#1f1f1f]">ISHIcarwash</span>
+    <div class="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] z-0 overflow-hidden">
+        <span class="material-icons-round text-[500px]">local_car_wash</span>
+    </div>
+
+    <header class="sticky top-0 z-50 flex flex-col sm:flex-row h-auto sm:h-20 w-full items-center justify-between bg-[#11141a]/85 backdrop-blur-md px-4 py-3 sm:py-0 shadow-md border-b border-slate-800 md:px-8 shrink-0 gap-2.5">
+        <div class="flex items-center gap-1.5">
+            <span class="material-icons-round text-[#388e3c] text-2xl animate-pulse">local_car_wash</span>
+            <span class="text-base font-black tracking-tight text-white">ISHIcarwash</span>
+            <span data-i18n="tag_community" class="rounded-full bg-blue-950/50 px-2 py-0.5 text-[9px] font-bold text-blue-300 border border-blue-900/50 ml-1.5">Community Project</span>
         </div>
-        <div>
-            <span class="rounded-full bg-[#e8def8] px-3 py-1 text-xs font-semibold text-[#21005d]">Community Project</span>
+        
+        <div class="flex items-center gap-1.5 bg-slate-900 border border-slate-800 rounded-2xl px-3 py-2 shadow-inner text-xs font-bold text-slate-300">
+            <span class="material-icons-round text-slate-400 text-base shrink-0 mr-1">language</span>
+            <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn active px-1 hover:text-blue-400 transition-all">English</button>
+            <span class="text-slate-700 font-normal">|</span>
+            <button onclick="changeLanguage('zh')" id="btn-zh" class="lang-btn px-1 hover:text-blue-400 transition-all">中文</button>
+            <span class="text-slate-700 font-normal">|</span>
+            <button onclick="changeLanguage('ms')" id="btn-ms" class="lang-btn px-1 hover:text-blue-400 transition-all">Malay</button>
+            <span class="text-slate-700 font-normal">|</span>
+            <button onclick="changeLanguage('ta')" id="btn-ta" class="lang-btn px-1 hover:text-blue-400 transition-all">தமிழ்</button>
         </div>
     </header>
 
-    <div class="flex-1 w-full flex justify-center items-start overflow-y-auto">
+    <div class="flex-1 w-full flex justify-center items-start overflow-y-auto z-10">
         <main class="w-full max-w-md px-4 py-6 space-y-6">
 
-            <section class="overflow-hidden rounded-[32px] bg-[#e8f0fe] p-4 text-center space-y-4 border border-[#d3e3fd] shadow-sm">
+            <section class="overflow-hidden rounded-[32px] bg-white/90 backdrop-blur-md p-4 text-center space-y-4 border border-slate-200/60 shadow-sm">
                 <div class="pt-2 space-y-4">
                     <div class="mx-auto max-w-[140px]">
                         <img src="https://i.postimg.cc/256KYx42/ISHIcarwash.jpg" alt="ISHIcarwash Logo" class="w-full h-auto object-contain drop-shadow-sm rounded-2xl" />
                     </div>
                     
                     <div class="space-y-1.5">
-                        <h1 class="text-2xl font-bold tracking-tight text-[#041e49]">Convenient Wash, At Your Home</h1>
-                        <p class="text-sm text-slate-600 leading-relaxed px-2">
-                            No travel & queue, just easy wash. 
-                        </p>
+                        <h1 data-i18n="hero_title" class="text-2xl font-bold tracking-tight text-[#041e49]">Convenient Wash, At Your Home</h1>
+                        <p data-i18n="hero_subtitle" class="text-sm text-slate-600 leading-relaxed px-2">No travel & queue, just easy wash.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl bg-[#ffcc00] p-4 text-left shadow-md border border-[#e5b800] flex items-center gap-4 relative overflow-hidden">
+                    <div class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-black/5 to-transparent pointer-events-none"></div>
+                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-black shrink-0 text-[#ffcc00] font-mono text-xs font-black tracking-tighter shadow-sm">
+                        KCX
+                    </div>
+                    <div class="space-y-0.5 z-10">
+                        <div class="flex items-center gap-2">
+                            <span data-i18n="wax_badge" class="inline-block rounded bg-black px-1.5 py-0.5 text-[8px] font-black uppercase tracking-wider text-[#ffcc00]">FREE INCLUSION</span>
+                        </div>
+                        <div class="flex items-center gap-1 text-black">
+                            <span class="material-icons-round text-sm">invert_colors</span>
+                            <h3 data-i18n="wax_title" class="font-black text-xs tracking-wide uppercase">Hydrophobic Wax Treatment</h3>
+                        </div>
+                        <p data-i18n="wax_desc" class="text-[10px] text-slate-900 leading-tight font-medium">Every service finished with premium German Koch Chemie detailing protection for intense gloss & water sheeting.</p>
                     </div>
                 </div>
 
@@ -55,8 +107,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-extrabold text-sm text-white tracking-wide">WhatsApp Chat</h3>
-                                <p class="text-[11px] text-emerald-50 leading-tight">Quick inquiries & appointment</p>
+                                <h3 data-i18n="btn_whatsapp" class="font-extrabold text-sm text-white tracking-wide">WhatsApp Chat</h3>
+                                <p data-i18n="btn_whatsapp_sub" class="text-[11px] text-emerald-50 leading-tight">Quick inquiries & appointment</p>
                             </div>
                         </div>
                         <span class="material-icons-round text-white text-base pr-1">arrow_forward_ios</span>
@@ -68,8 +120,8 @@
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar" class="w-full h-full object-contain" />
                             </div>
                             <div>
-                                <h3 class="font-bold text-xs tracking-wide">Google Calendar</h3>
-                                <p class="text-[10px] text-blue-100">Check available timing</p>
+                                <h3 data-i18n="btn_calendar" class="font-bold text-xs tracking-wide">Google Calendar</h3>
+                                <p data-i18n="btn_calendar_sub" class="text-[10px] text-blue-100">Check available timing</p>
                             </div>
                         </div>
                         <span class="material-icons-round text-blue-200 text-sm pr-1">arrow_forward_ios</span>
@@ -92,52 +144,48 @@
                 </div>
             </section>
 
-            <section class="rounded-[32px] bg-[#fcf9f2] p-6 border border-[#f3ebdb] space-y-3 shadow-sm">
-                <div class="flex items-center gap-2 text-[#b06000]">
-                    <span class="material-icons-round text-xl">favorite</span>
-                    <h2 class="text-xs font-bold tracking-widest uppercase">The Story Behind ISHIcarwash</h2>
+            <section class="rounded-[32px] bg-[#fffcf0]/95 backdrop-blur-sm p-5 border-2 border-dashed border-[#e0b000] space-y-2.5 shadow-sm relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 h-16 w-16 bg-[#e0b000]/10 rounded-full flex items-center justify-center rotate-12">
+                    <span class="material-icons-round text-3xl text-[#a07000]/20">style</span>
                 </div>
-                
-                <div class="space-y-3 text-slate-700 text-xs leading-relaxed">
-                    <p>
-                        <strong>ISHIcarwash</strong> didn’t start because the community needed another commercial business. It started as a community-focused project built entirely around <strong>intention, care, and purpose.</strong>
-                    </p>
-                    <p>
-                        We believe your time, be it weekday or weekend, are precious, and your vehicle is a major investment. Traditional roadside washes are fast, but often inattentive. High-end detailing studios are safe, but travelling and time-constraint often remain barriers. 
-                    </p>
-                    <p>
-                        This project bridges that gap. By operating locally right at your doorstep, we strip away commercial overhead to offer enthusiast-grade, safe washing at an honest, flat baseline rate. 
-                    </p>
-                    <p class="font-medium text-slate-900 italic border-l-2 border-[#b06000] pl-3 py-0.5">
-                        "Our goal isn't to maximize volume; it's to deliver the absolute best 'bang-for-your-buck' value back to our community, built purely on mutual trust and respect."
-                    </p>
+                <div class="flex items-center gap-2 text-[#a07000]">
+                    <span class="material-icons-round text-xl">stars</span>
+                    <h2 data-i18n="loyalty_header" class="text-xs font-black tracking-widest uppercase">Same Slot Combo Discount</h2>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-base font-extrabold text-[#4a3600]"><span data-i18n="loyalty_save">Save</span> <span class="text-xl text-[#c92222] font-black">RM 3 OFF</span> <span data-i18n="loyalty_per_car">Per Car!</span></h3>
+                    <p data-i18n="loyalty_desc" class="text-[11px] text-slate-600 leading-relaxed">Got multiple cars at home, or washing together with a neighbor? Secure your bookings for the <strong>same time & same location</strong> to unlock an immediate **RM3 discount** on the subsequent 2nd, 3rd, and 4th vehicles!</p>
                 </div>
             </section>
 
-            <section class="space-y-3 rounded-[28px] bg-white p-4 shadow-sm border border-slate-200">
+            <section class="space-y-3 rounded-[28px] bg-white/90 backdrop-blur-sm p-4 shadow-sm border border-slate-200/80">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-2">
                     <h2 class="text-xs font-bold tracking-wider text-slate-800 uppercase">
-                        📍 <span class="text-blue-600 font-extrabold">Taman Len Seng</span> area only
+                        📍 <span data-i18n="local_zone" class="text-blue-600 font-extrabold">Taman Len Seng</span> <span data-i18n="area_only">area only</span>
                     </h2>
-                    <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-800 border border-emerald-200 flex items-center gap-0.5">
-                        <span class="material-icons-round text-[10px]">star</span>Local Rate
-                    </span>
+                    <span data-i18n="rate_badge_local" class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-800 border border-emerald-200 flex items-center gap-0.5">Local Rate</span>
                 </div>
                 
-                <div class="flex items-center justify-between rounded-xl bg-slate-50 p-3 border border-slate-100">
+                <div class="flex items-center justify-between rounded-xl bg-slate-50/80 p-3 border border-slate-100 relative overflow-hidden">
                     <div class="space-y-0.5">
-                        <h3 class="font-bold text-sm text-[#1f1f1f]">Saver Wash</h3>
-                        <p class="text-[11px] text-slate-500">Body Wash only</p>
+                        <div class="flex items-center gap-1.5">
+                            <h3 data-i18n="wash_saver" class="font-bold text-sm text-[#1f1f1f]">Saver Wash</h3>
+                            <span class="rounded bg-black px-1 text-[7px] font-bold text-[#ffcc00] uppercase tracking-tight">KCX Wax Inc.</span>
+                        </div>
+                        <p data-i18n="wash_saver_desc" class="text-[11px] text-slate-500">Body Wash only</p>
                     </div>
                     <div class="text-right">
                         <span class="text-xl font-black text-[#0b57d0]">RM 15</span>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between rounded-xl bg-slate-50 p-3 border border-slate-100">
+                <div class="flex items-center justify-between rounded-xl bg-slate-50/80 p-3 border border-slate-100 relative overflow-hidden">
                     <div class="space-y-0.5">
-                        <h3 class="font-bold text-sm text-[#1f1f1f]">Standard Wash</h3>
-                        <p class="text-[11px] text-slate-500">Body Wash + Interior Cleaning (Vacuum & Window Clean)</p>
+                        <div class="flex items-center gap-1.5">
+                            <h3 data-i18n="wash_standard" class="font-bold text-sm text-[#1f1f1f]">Standard Wash</h3>
+                            <span class="rounded bg-black px-1 text-[7px] font-bold text-[#ffcc00] uppercase tracking-tight">KCX Wax Inc.</span>
+                        </div>
+                        <p data-i18n="wash_standard_desc" class="text-[11px] text-slate-500">Body Wash + Interior Cleaning</p>
                     </div>
                     <div class="text-right">
                         <span class="text-xl font-black text-[#0b57d0]">RM 20</span>
@@ -145,48 +193,231 @@
                 </div>
             </section>
 
-            <section class="space-y-3 rounded-[28px] bg-slate-800 p-4 shadow-md border border-slate-900 text-white">
-                <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
-                    <h2 class="text-xs font-bold tracking-wider text-slate-200 uppercase">
-                        🚗 <span class="text-amber-400 font-extrabold">Other Selected Areas</span>
+            <section class="space-y-3 rounded-[28px] bg-teal-200/95 backdrop-blur-sm p-4 shadow-md border border-teal-300 text-slate-900">
+                <div class="flex items-center justify-between border-b border-teal-300/80 pb-2">
+                    <h2 class="text-xs font-bold tracking-wider text-teal-950 uppercase">
+                        🚗 <span data-i18n="extended_zone" class="text-teal-900 font-extrabold">Other Selected Areas</span>
                     </h2>
-                    <span class="rounded-full bg-slate-700 px-2.5 py-0.5 text-[9px] font-medium tracking-wide text-slate-300 border border-slate-600">
-                        Extended Zone
-                    </span>
+                    <span data-i18n="rate_badge_extended" class="rounded-full bg-teal-800 px-2.5 py-0.5 text-[9px] font-bold tracking-wide text-white">Extended Zone</span>
                 </div>
                 
-                <div class="flex items-center justify-between rounded-xl bg-slate-900/60 p-3 border border-slate-700/50">
+                <div class="flex items-center justify-between rounded-xl bg-white/60 p-3 border border-teal-300/40">
                     <div class="space-y-0.5">
-                        <h3 class="font-bold text-sm text-white">Saver Wash</h3>
-                        <p class="text-[11px] text-slate-400">Body Wash only</p>
+                        <div class="flex items-center gap-1.5">
+                            <h3 data-i18n="wash_saver" class="font-bold text-sm text-teal-950">Saver Wash</h3>
+                            <span class="rounded bg-black px-1 text-[7px] font-bold text-[#ffcc00] uppercase tracking-tight">KCX Wax Inc.</span>
+                        </div>
+                        <p data-i18n="wash_saver_desc" class="text-[11px] text-teal-800">Body Wash only</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-lg font-black text-amber-400">RM 20</span>
+                        <span class="text-lg font-black text-teal-950">RM 20</span>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between rounded-xl bg-slate-900/60 p-3 border border-slate-700/50">
+                <div class="flex items-center justify-between rounded-xl bg-white/60 p-3 border border-teal-300/40">
                     <div class="space-y-0.5">
-                        <h3 class="font-bold text-sm text-white">Standard Wash</h3>
-                        <p class="text-[11px] text-slate-400">Body Wash + Interior Cleaning (Vacuum & Window Clean)</p>
+                        <div class="flex items-center gap-1.5">
+                            <h3 data-i18n="wash_standard" class="font-bold text-sm text-teal-950">Standard Wash</h3>
+                            <span class="rounded bg-black px-1 text-[7px] font-bold text-[#ffcc00] uppercase tracking-tight">KCX Wax Inc.</span>
+                        </div>
+                        <p data-i18n="wash_standard_desc" class="text-[11px] text-teal-800">Body Wash + Interior Cleaning</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-lg font-black text-amber-400">RM 25</span>
+                        <span class="text-lg font-black text-teal-950">RM 25</span>
                     </div>
                 </div>
 
-                <div class="rounded-xl bg-slate-900/40 p-3.5 flex gap-2.5 items-start border border-slate-700/30 mt-1">
-                    <span class="material-icons-round text-amber-400 text-sm mt-0.5 shrink-0">volunteer_activism</span>
-                    <p class="text-[11px] text-slate-300 leading-relaxed">
-                        <strong>Our Pricing Philosophy:</strong> This project aims to bring maximal value to our local community.                         
-                        <br><br>
-                        Rates vary slightly by location to cover extra travel time & logistics. Ping us via WhatsApp to confirm coverage details!
-                        <br><br>
-                        *Price may subject to change without prior notification.
+                <div class="rounded-xl bg-teal-900/10 p-3.5 flex gap-2.5 items-start border border-teal-300/30 mt-1">
+                    <span class="material-icons-round text-teal-800 text-sm mt-0.5 shrink-0">volunteer_activism</span>
+                    <p class="text-[11px] text-teal-900 leading-relaxed" data-i18n="pricing_philosophy">
+                        <strong>Our Pricing Philosophy:</strong> This project aims to bring maximal value to our local community. <br><br>Rates vary slightly by location to cover extra travel time & logistics. Ping us via WhatsApp to confirm coverage details!<br><br>*Price may subject to change without prior notification.
                     </p>
                 </div>
             </section>
+
+            <section class="rounded-[32px] bg-[#fcf9f2]/90 backdrop-blur-sm p-6 border border-[#f3ebdb]/80 space-y-3 shadow-sm">
+                <div class="flex items-center gap-2 text-[#b06000]">
+                    <span class="material-icons-round text-xl">favorite</span>
+                    <h2 data-i18n="story_header" class="text-xs font-bold tracking-widest uppercase">The Story Behind ISHIcarwash</h2>
+                </div>
+                
+                <div id="story-paragraphs" class="space-y-3 text-slate-700 text-xs leading-relaxed">
+                    </div>
+            </section>
+
         </main>
     </div>
+
+    <footer class="w-full text-center py-4 bg-[#11141a]/95 backdrop-blur-md border-t border-slate-800 text-[10px] text-slate-500 shrink-0 z-10">
+        <p>&copy; 2026 ISHIcarwash. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                tag_community: "Community Project",
+                hero_title: "Convenient Wash, At Your Home",
+                hero_subtitle: "No travel & queue, just easy wash.",
+                wax_badge: "FREE INCLUSION",
+                wax_title: "Hydrophobic Wax Treatment",
+                wax_desc: "Every service finished with premium German Koch Chemie detailing protection for intense gloss & water sheeting.",
+                btn_whatsapp: "WhatsApp Chat",
+                btn_whatsapp_sub: "Quick inquiries & appointment",
+                btn_calendar: "Google Calendar",
+                btn_calendar_sub: "Check available timing",
+                btn_instagram: "Instagram Portfolio",
+                btn_instagram_sub: "Easy & quick references",
+                loyalty_header: "Same Slot Combo Discount",
+                loyalty_save: "Save",
+                loyalty_per_car: "Per Car!",
+                loyalty_desc: "Got multiple cars at home, or washing together with a neighbor? Secure your bookings for the same time & same location to unlock an immediate RM3 discount on the subsequent 2nd, 3rd, and 4th vehicles!",
+                local_zone: "Taman Len Seng",
+                area_only: "area only",
+                rate_badge_local: "Local Rate",
+                rate_badge_extended: "Extended Zone",
+                extended_zone: "Other Selected Areas",
+                wash_saver: "Saver Wash",
+                wash_saver_desc: "Body Wash only",
+                wash_standard: "Standard Wash",
+                wash_standard_desc: "Body Wash + Interior Cleaning",
+                pricing_philosophy: "<strong>Our Pricing Philosophy:</strong> This project aims to bring maximal value to our local community. <br><br>Rates vary slightly by location to cover extra travel time & logistics. Ping us via WhatsApp to confirm coverage details!<br><br>*Price may subject to change without prior notification.",
+                story_header: "The Story Behind ISHIcarwash",
+                story_p1: "<strong>ISHIcarwash</strong> didn’t start because the community needed another commercial business. It started as a community-focused project built entirely around <strong>intention, care, and purpose.</strong>",
+                story_p2: "We believe your time, be it weekday or weekend, are precious, and your vehicle is a major investment. Traditional roadside washes are fast, but often inattentive. High-end detailing studios are safe, but travelling and time-constraint often remain barriers.",
+                story_p3: "This project bridges that gap. By operating locally right at your doorstep, we strip away commercial overhead to offer enthusiast-grade, safe washing at an honest, flat baseline rate.",
+                story_p4: '"Our goal isn\'t to maximize volume; it\'s to deliver the absolute best \'bang-for-your-buck\' value back to our community, built purely on mutual trust and respect."'
+            },
+            zh: {
+                tag_community: "社区企划",
+                hero_title: "上门洗车 · 轻松便捷",
+                hero_subtitle: "无需出门，无需排队，安坐家中体验优质洗车服务。",
+                wax_badge: "免费升级",
+                wax_title: "专业驱水镀膜上蜡护体",
+                wax_desc: "每项洗车服务均包含德国高级 Koch Chemie (KCX) 保护蜡，让爱车瞬间展现极致光泽与超强驱水荷叶效应。",
+                btn_whatsapp: "WhatsApp 预约查询",
+                btn_whatsapp_sub: "快速咨询与时间预定",
+                btn_calendar: "谷歌行事历",
+                btn_calendar_sub: "在线查看可预约时段",
+                btn_instagram: "Instagram 作品集",
+                btn_instagram_sub: "轻松查看洗车前后对比参考",
+                loyalty_header: "同场多车组合优惠",
+                loyalty_save: "每辆节省",
+                loyalty_per_car: "RM 3！",
+                loyalty_desc: "家里有多辆车，或者想和邻居一起洗？只要安排在**同一时间、同一地点**进行洗车，接下来的第 2、第 3 和第 4 辆车即可当场享有每辆 RM3 的现金折扣！",
+                local_zone: "Taman Len Seng",
+                area_only: "核心社区专属",
+                rate_badge_local: "本区特惠价",
+                rate_badge_extended: "外区扩展服务",
+                extended_zone: "其他指定服务区域",
+                wash_saver: "经济车身洗",
+                wash_saver_desc: "仅限车身外部清洗",
+                wash_standard: "标准全套洗",
+                wash_standard_desc: "车身清洗 + 内饰吸尘清理",
+                pricing_philosophy: "<strong>我们的定价理念：</strong> 本企划旨在为本地社区创造最大价值。<br><br>不同区域的价格略有调整，仅为了合理补贴额外的车程时间与交通物流成本。欢迎随时通过 WhatsApp 联络我们确认具体覆盖范围！<br><br>*价格如有调整，恕不另行通知。",
+                story_header: "ISHIcarwash 背后的故事",
+                story_p1: "<strong>ISHIcarwash</strong> 的诞生并非为了在这个市场上多开一家普通的商业洗车铺。它纯粹是一个以社区为中心、围绕着<strong>“用心、细致与热忱”</strong>而建立的邻里互助企划。",
+                story_p2: "我们深知您的时间（工作日或周末）极其珍贵，而您的爱车是一项重大投资。传统的路边洗车速度虽快，但往往粗糙；高端美容中心虽安全，但往返路程与时间限制往往成为障碍。",
+                story_p3: "本企划正是为了解决这个痛点而生。我们直接把专业服务带到您的家门口，省去一切昂贵的商业铺租成本，以最诚实、慢调的底层街坊价，为您提供发烧友级别的安全安全洗车服务。",
+                story_p4: "“我们的目标从来不是追求庞大的洗车数量，而是建立在彼此信任和互相尊重的基础上，将真正高性价比的汽车护理体验带回给我们的邻里社区。”"
+            },
+            ms: {
+                tag_community: "Projek Komuniti",
+                hero_title: "Cuci Kereta Selesa, Di Rumah Anda",
+                hero_subtitle: "Tanpa perlu travel & beratur, servis mudah di depan pintu rumah.",
+                wax_badge: "PERCUMA INKLUSI",
+                wax_title: "Rawatan Lilin Hidrofobik",
+                wax_desc: "Setiap servis disudahi dengan perlindungan detailing premium Koch Chemie dari Jerman untuk kilauan padu & penolakan air.",
+                btn_whatsapp: "Sembang WhatsApp",
+                btn_whatsapp_sub: "Pertanyaan pantas & tempahan slot",
+                btn_calendar: "Google Calendar",
+                btn_calendar_sub: "Semak masa slot yang kosong",
+                btn_instagram: "Portfolio Instagram",
+                btn_instagram_sub: "Rujukan mudah & gambar hasil kerja",
+                loyalty_header: "Diskaun Kombo Slot Sama",
+                loyalty_save: "Jimat",
+                loyalty_per_car: "Per Kenderaan!",
+                loyalty_desc: "Ada banyak kereta di rumah, atau ingin cuci sekali dengan jiran sebelah? Tempah slot pada **masa & lokasi yang sama** untuk menikmati potongan diskaun serta-merta sebanyak RM3 bagi kereta ke-2, ke-3, dan ke-4!",
+                local_zone: "Taman Len Seng",
+                area_only: "sahaja",
+                rate_badge_local: "Kadar Tempatan",
+                rate_badge_extended: "Zon Lanjutan",
+                extended_zone: "Kawasan Terpilih Lain",
+                wash_saver: "Saver Wash",
+                wash_saver_desc: "Cuci Badan Kereta sahaja",
+                wash_standard: "Standard Wash",
+                wash_standard_desc: "Cuci Badan Kereta + Vakum Dalaman",
+                pricing_philosophy: "<strong>Filosofi Harga Kami:</strong> Projek ini bertujuan membawa nilai penjimatan maksima kepada komuniti setempat.<br><br>Kadar harga berbeza sedikit mengikut lokasi bagi menampung masa perjalanan & logistik tambahan. Sila hantar mesej WhatsApp kepada kami untuk mengesahkan liputan zon!<br><br>*Harga tertakluk kepada perubahan tanpa notis pemberitahuan.",
+                story_header: "Kisah Di Sebalik ISHIcarwash",
+                story_p1: "<strong>ISHIcarwash</strong> tidak bermula kerana komuniti memerlukan sebuah lagi perniagaan komersial biasa. Ia bermula sebagai projek berfokuskan komuniti yang dibina sepenuhnya atas dasar <strong>niat yang baik, ketelitian, dan matlamat yang jelas.</strong>",
+                story_p2: "Kami tahu masa anda, sama ada hari biasa atau hujung minggu, sangat berharga, dan kenderaan anda merupakan pelaburan yang besar. Basuhan tepi jalan biasa memang cepat, tetapi kerap kali kurang cermat. Studio detailing kelas atasan pula selamat, namun isu perjalanan dan kekangan masa sentiasa menjadi penghalang.",
+                story_p3: "Projek ini merapatkan jurang tersebut. Dengan beroperasi secara setempat terus di depan rumah anda, kami memotong kos overhed komersial yang tinggi demi menawarkan basuhan gred peminat kereta yang selamat pada kadar harga asas yang jujur.",
+                story_p4: '"Matlamat kami bukanlah untuk memaksimumkan kuantiti basuhan; sebaliknya ia adalah untuk memberikan pulangan nilai kualiti terbaik kepada komuniti kita, dibina murni atas rasa saling percaya dan hormat."'
+            },
+            ta: {
+                tag_community: "சமூகத் திட்டம்",
+                hero_title: "உங்க இல்லத்திற்கே வரும் கார் வாஷ்",
+                hero_subtitle: "பயணமும் வரிசைகளும் தேவையில்லை, வாசலிலேயே சுலபமான சேவை.",
+                wax_badge: "இலவச இணைப்பு",
+                wax_title: "ஹைட்ரோஃபோபிக் மெழுகு சிகிச்சை",
+                wax_desc: "சிறந்த பளபளப்பு மற்றும் நீர் எதிர்ப்புத் திறனுக்காக ஜெர்மனியின் பிரீமியம் கோச் கெமி (KCX) பாதுகாப்புடன் ஒவ்வொரு சேவையும் நிறைவடைகிறது.",
+                btn_whatsapp: "வாட்ஸ்அப் அரட்டை",
+                btn_whatsapp_sub: "விரைவான விசாரணைகள் & முன்பதிவு",
+                btn_calendar: "கூகுள் காலண்டர்",
+                btn_calendar_sub: "கிடைக்கும் நேரத்தைச் சரிபார்க்கவும்",
+                btn_instagram: "இன்ஸ்டாகிராம் போர்ட்ஃபோலியோ",
+                btn_instagram_sub: "எளிதான மற்றும் விரைவான குறிப்புகள்",
+                loyalty_header: "ஒரே நேர சேர்க்கை தள்ளுபடி",
+                loyalty_save: "சேமிப்பு",
+                loyalty_per_car: "ஒரு காருக்கு!",
+                loyalty_desc: "வீட்டில் பல கார்கள் உள்ளதா, அல்லது பக்கத்து வீட்டுக்காரருடன் சேர்ந்து கழுவ வேண்டுமா? ஒரே நேரம் மற்றும் ஒரே இடத்தில் உங்கள் முன்பதிவுகளைச் செய்து, அடுத்தடுத்த 2வது, 3வது மற்றும் 4வது வாகனங்களுக்கு உடனடியாக RM3 தள்ளுபடி பெறுங்கள்!",
+                local_zone: "தாமான் லென் செங்",
+                area_only: "பகுதிக்கு மட்டும்",
+                rate_badge_local: "உள்ளூர் கட்டணம்",
+                rate_badge_extended: "நீட்டப்பட்ட மண்டலம்",
+                extended_zone: "இதர தேர்ந்தெடுக்கப்பட்ட பகுதிகள்",
+                wash_saver: "சேவர் வாஷ்",
+                wash_saver_desc: "கார் வெளிப்புறம் மட்டும்",
+                wash_standard: "ஸ்டாண்டர்ட் வாஷ்",
+                wash_standard_desc: "கார் வெளிப்புறம் + உட்புற சுத்தம்",
+                pricing_philosophy: "<strong>எங்கள் விலை தத்துவம்:</strong> இந்த திட்டம் எங்கள் உள்ளூர் சமூகத்திற்கு அதிகபட்ச மதிப்பை வழங்குவதை நோக்கமாகக் கொண்டுள்ளது. <br><br>கூடுதல் பயண நேரம் மற்றும் தளவாடங்களை ஈடுசெய்ய இருப்பிடத்தைப் பொறுத்து கட்டணங்கள் சற்று மாறுபடும். கவரேஜ் விவரங்களை உறுதிப்படுத்த வாட்ஸ்அப் மூலம் எங்களை அழைக்கவும்!<br><br>*முன்னறிவிப்பின்றி விலைகள் மாற்றத்திற்கு உட்பட்டவை.",
+                story_header: "ISHIcarwash-ன் பின்னணி கதை",
+                story_p1: "<strong>ISHIcarwash</strong> ஒரு வணிக நோக்கம் கொண்ட நிறுவனமாக தொடங்கப்படவில்லை. இது முற்றிலும் <strong>நோக்கம், கவனிப்பு மற்றும் நல்விருப்பத்தை</strong> அடிப்படையாகக் கொண்ட ஒரு சமூக திட்டமாகும்.",
+                story_p2: "உங்கள் நேரம் மிகவும் மதிப்புமிக்கது மற்றும் உங்கள் வாகனம் ஒரு முக்கிய முதலீடு என்பதை நாங்கள் அறிவோம். சாதாரண சாலையோர வாஷ்கள் வேகமானவை, ஆனால் பெரும்பாலும் கவனக்குறைவாக இருக்கும். பிரீமியம் ஸ்டுடியோக்கள் பாதுகாப்பானவை, ஆனால் பயண நேரமும் காத்திருப்பும் பெரிய தடையாக அமைகின்றன.",
+                story_p3: "இந்த திட்டம் அந்த இடைவெளியைக் குறைக்கிறது. உங்கள் வீட்டு வாசலிலேயே சேவைகளை வழங்குவதன் மூலம், வணிகச் செலவுகளைக் குறைத்து, உங்களுக்கு நியாயமான, நிலையான கட்டணத்தில் சிறந்த பாதுகாப்பான வாஷ் சேவையை வழங்குகிறோம்.",
+                story_p4: '"எங்கள் நோக்கம் அதிக எண்ணிக்கையிலான வாடிக்கையாளர்களைப் பெறுவது அல்ல; பரஸ்பர நம்பிக்கை மற்றும் மரியாதையின் அடிப்படையில் எங்கள் சமூகத்திற்கு சிறந்த மதிப்பைத் தருவதே ஆகும்."'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
+            const activeBtn = document.getElementById(`btn-${lang}`);
+            if (activeBtn) activeBtn.classList.add("active");
+
+            document.querySelectorAll("[data-i18n]").forEach(element => {
+                const key = element.getAttribute("data-i18n");
+                if (translations[lang] && translations[lang][key]) {
+                    if (key === "pricing_philosophy") {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            const storyContainer = document.getElementById("story-paragraphs");
+            if (storyContainer && translations[lang]) {
+                storyContainer.innerHTML = `
+                    <p>${translations[lang].story_p1}</p>
+                    <p>${translations[lang].story_p2}</p>
+                    <p>${translations[lang].story_p3}</p>
+                    <p class="font-medium text-slate-900 italic border-l-2 border-[#b06000] pl-3 py-0.5">${translations[lang].story_p4}</p>
+                `;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            changeLanguage('en');
+        });
+    </script>
 </body>
 </html>
