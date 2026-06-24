@@ -42,11 +42,13 @@
             z-index: -1;
         }
 
-        /* Active selection link element style */
+        /* High contrast active language button style for older folks */
         .lang-btn.active {
-            color: #0b57d0;
+            background-color: #15803d !important; /* Bright Emerald Green */
+            color: #ffffff !important;
             font-weight: 900;
-            text-decoration: underline;
+            border-color: #15803d !important;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
@@ -56,20 +58,27 @@
         <span class="material-icons-round text-[500px]">local_car_wash</span>
     </div>
 
-    <header class="sticky top-0 z-50 flex flex-col sm:flex-row h-auto sm:h-20 w-full items-center justify-between bg-[#11141a]/85 backdrop-blur-md px-4 py-3 sm:py-0 shadow-md border-b border-slate-800 md:px-8 shrink-0 gap-2.5">
-        <div class="flex items-center gap-1.5">
-            <span class="material-icons-round text-[#388e3c] text-2xl animate-pulse">local_car_wash</span>
-            <span class="text-base font-black tracking-tight text-white">ISHIcarwash</span>
-            <span data-i18n="tag_community" class="rounded-full bg-blue-950/50 px-2 py-0.5 text-[9px] font-bold text-blue-300 border border-blue-900/50 ml-1.5">Community Project</span>
+    <!-- Optimized Header with High-Visibility Language Switcher for Elderly Users -->
+    <header class="sticky top-0 z-50 flex flex-col md:flex-row h-auto md:h-24 w-full items-center justify-between bg-[#11141a]/95 backdrop-blur-md px-4 py-4 shadow-xl border-b-2 border-slate-700 md:px-8 shrink-0 gap-4">
+        <div class="flex items-center gap-2">
+            <span class="material-icons-round text-[#388e3c] text-3xl animate-pulse">local_car_wash</span>
+            <div class="flex flex-col">
+                <span class="text-xl font-black tracking-tight text-white">ISHIcarwash</span>
+                <span data-i18n="tag_community" class="w-max rounded bg-blue-950 px-1.5 py-0.5 text-[9px] font-bold text-blue-300 border border-blue-900 mt-0.5">Community Project</span>
+            </div>
         </div>
         
-        <div class="flex items-center gap-1.5 bg-slate-900 border border-slate-800 rounded-2xl px-3 py-2 shadow-inner text-xs font-bold text-slate-300">
-            <span class="material-icons-round text-slate-400 text-base shrink-0 mr-1">language</span>
-            <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn active px-1 hover:text-blue-400 transition-all">English</button>
-            <span class="text-slate-700 font-normal">|</span>
-            <button onclick="changeLanguage('zh')" id="btn-zh" class="lang-btn px-1 hover:text-blue-400 transition-all">中文</button>
-            <span class="text-slate-700 font-normal">|</span>
-            <button onclick="changeLanguage('ms')" id="btn-ms" class="lang-btn px-1 hover:text-blue-400 transition-all">Malay</button>
+        <!-- Senior-Friendly Language Switcher Box -->
+        <div class="flex flex-col items-center sm:items-end gap-1 w-full sm:w-auto">
+            <div class="flex items-center gap-1 text-amber-400 font-bold text-xs uppercase tracking-wider bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                <span class="material-icons-round text-sm">translate</span>
+                <span>Change Language / 切换语言</span>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-800 p-1.5 rounded-xl border-2 border-slate-600 w-full sm:w-auto justify-between">
+                <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn active text-base font-bold text-slate-800 bg-white border border-slate-300 px-4 py-2 rounded-lg transition-all min-w-[85px]">English</button>
+                <button onclick="changeLanguage('zh')" id="btn-zh" class="lang-btn text-base font-bold text-slate-800 bg-white border border-slate-300 px-4 py-2 rounded-lg transition-all min-w-[85px]">中文</button>
+                <button onclick="changeLanguage('ms')" id="btn-ms" class="lang-btn text-base font-bold text-slate-800 bg-white border border-slate-300 px-4 py-2 rounded-lg transition-all min-w-[85px]">Malay</button>
+            </div>
         </div>
     </header>
 
@@ -242,14 +251,4 @@
             </section>
 
             <section class="space-y-3 rounded-[28px] bg-white/90 backdrop-blur-sm p-4 shadow-sm border border-slate-200/80">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-                    <h2 class="text-xs font-bold tracking-wider text-slate-800 uppercase">
-                        🚗 <span data-i18n="extended_zone" class="text-blue-600 font-extrabold">Other Selected Areas</span>
-                    </h2>
-                    <span data-i18n="rate_badge_extended" class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-800 border border-emerald-200 flex items-center gap-0.5">Extended Zone</span>
-                </div>
-                
-                <div class="flex items-center justify-between rounded-xl bg-slate-50/80 p-3 border border-slate-100 relative overflow-hidden">
-                    <div class="space-y-0.5">
-                        <div class="flex items-center gap-1.5">
-          
+                <div class="flex items-center justify-between border-b border-slate-100 pb-2
