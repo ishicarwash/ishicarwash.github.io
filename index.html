@@ -61,8 +61,6 @@
             <button onclick="changeLanguage('zh')" id="btn-zh" class="lang-btn px-1 hover:text-blue-400 transition-all">中文</button>
             <span class="text-slate-700 font-normal">|</span>
             <button onclick="changeLanguage('ms')" id="btn-ms" class="lang-btn px-1 hover:text-blue-400 transition-all">Malay</button>
-            <span class="text-slate-700 font-normal">|</span>
-            <button onclick="changeLanguage('ta')" id="btn-ta" class="lang-btn px-1 hover:text-blue-400 transition-all">தமிழ்</button>
         </div>
     </header>
 
@@ -144,17 +142,58 @@
                 </div>
             </section>
 
-            <section class="rounded-[32px] bg-[#fffcf0]/95 backdrop-blur-sm p-5 border-2 border-dashed border-[#e0b000] space-y-3 shadow-sm relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 h-16 w-16 bg-[#e0b000]/10 rounded-full flex items-center justify-center rotate-12">
-                    <span class="material-icons-round text-3xl text-[#a07000]/20">style</span>
+            <section class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-amber-50 to-orange-50/70 border border-amber-200 shadow-md p-5 space-y-4">
+                <div class="absolute top-0 left-0 right-0 h-[5px] bg-gradient-to-r from-amber-400 via-orange-500 to-red-500"></div>
+
+                <div class="flex items-center gap-2.5">
+                    <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 shadow-sm text-white">
+                        <span class="material-icons-round text-lg">auto_awesome</span>
+                    </div>
+                    <h2 data-i18n="loyalty_header" class="text-sm font-black tracking-wider text-amber-950 uppercase">
+                        Extra Carwash Discount
+                    </h2>
                 </div>
-                <div class="flex items-center gap-2 text-[#a07000]">
-                    <span class="material-icons-round text-xl">stars</span>
-                    <h2 data-i18n="loyalty_header" class="text-[15px] sm:text-xl font-black tracking-wide uppercase bg-[#ffcc00]/40 px-2.5 py-0.5 rounded-lg text-amber-950 whitespace-nowrap overflow-hidden text-ellipsis max-w-full">Additional Car Discount</h2>
+
+                <div class="relative bg-white border border-dashed border-amber-300 rounded-2xl shadow-sm flex items-center p-4 gap-4 before:content-[''] before:absolute before:-left-[9px] before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:bg-gradient-to-br before:from-amber-50 before:to-orange-50/70 before:border-r before:border-amber-200 before:rounded-full after:content-[''] after:absolute after:-right-[9px] after:top-1/2 after:-translate-y-1/2 after:w-4 after:h-4 after:bg-gradient-to-br after:from-amber-50 after:to-orange-50/70 after:border-l after:border-amber-200 after:rounded-full overflow-hidden">
+                    
+                    <div class="text-center shrink-0 border-r border-slate-100 pr-4 py-1 flex flex-col justify-center">
+                        <span data-i18n="loyalty_save" class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">SAVE</span>
+                        <span data-i18n="loyalty_badge_price" class="text-2xl font-black text-[#c92222] tracking-tighter block leading-none my-0.5">RM 3 OFF</span>
+                        <span data-i18n="loyalty_per_car" class="text-[9px] font-black text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded-md uppercase tracking-tight block">Per Car!</span>
+                    </div>
+
+                    <div class="space-y-1 pl-1">
+                        <p data-i18n="loyalty_desc" class="text-[11px] text-slate-600 leading-relaxed">
+                            Got other cars at home? Lock in your savings immediately by routing your slots together.
+                        </p>
+                    </div>
                 </div>
-                <div class="space-y-1">
-                    <h3 class="text-base font-extrabold text-[#4a3600]"><span data-i18n="loyalty_save">Save</span> <span data-i18n="loyalty_badge_price" class="text-xl text-[#c92222] font-black">RM 3 OFF</span> <span data-i18n="loyalty_per_car">Per Car!</span></h3>
-                    <p data-i18n="loyalty_desc" class="text-[11px] text-slate-600 leading-relaxed">Got multiple cars at home, or washing together with a neighbor? Secure your bookings for the <strong class="bg-[#ffcc00]/50 px-1 rounded text-black font-black">same time & same location</strong> to unlock an immediate RM3 discount on the subsequent 2nd, 3rd, and 4th vehicles!</p>
+
+                <div class="bg-amber-950/5 rounded-xl p-3 border border-amber-900/5">
+                    <div class="grid grid-cols-2 gap-2 text-center relative">
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-0.5 border border-amber-200 text-amber-700 hidden sm:block">
+                            <span class="material-icons-round text-xs block">arrow_forward</span>
+                        </div>
+
+                        <div class="bg-white/80 rounded-lg p-2 border border-amber-200/40 flex flex-col items-center justify-center">
+                            <div class="flex items-center gap-1 text-amber-900 font-bold text-[10px] mb-0.5">
+                                <span class="material-icons-round text-xs text-amber-600">schedule</span>
+                                <span data-i18n="loyalty_cond_1">SAME TIME</span>
+                            </div>
+                            <span data-i18n="loyalty_sub_1" class="text-[9px] text-slate-500">Back-to-back booking</span>
+                        </div>
+
+                        <div class="bg-white/80 rounded-lg p-2 border border-amber-200/40 flex flex-col items-center justify-center">
+                            <div class="flex items-center gap-1 text-amber-900 font-bold text-[10px] mb-0.5">
+                                <span class="material-icons-round text-xs text-amber-600">place</span>
+                                <span data-i18n="loyalty_cond_2">SHARED HOUSE ONLY</span>
+                            </div>
+                            <span data-i18n="loyalty_sub_2" class="text-[9px] text-slate-500">Same compound setup</span>
+                        </div>
+                    </div>
+                    <p data-i18n="loyalty_footer_note" class="text-[9px] text-slate-500 text-center mt-2 font-medium">
+                        *Discount applies directly to the subsequent 2nd, 3rd, and 4th vehicles.
+                    </p>
                 </div>
             </section>
 
@@ -175,7 +214,7 @@
                         <p data-i18n="wash_saver_desc" class="text-[11px] text-teal-800">Body Wash only</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-xl font-black text-teal-950">RM 15</span>
+                        <span class="text-xl font-black text-teal-950">RM15 - RM18</span>
                     </div>
                 </div>
 
@@ -188,7 +227,7 @@
                         <p data-i18n="wash_standard_desc" class="text-[11px] text-teal-800">Body Wash + Interior Cleaning</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-xl font-black text-teal-950">RM 20</span>
+                        <span class="text-xl font-black text-teal-950">RM20 - RM25</span>
                     </div>
                 </div>
             </section>
@@ -210,7 +249,7 @@
                         <p data-i18n="wash_saver_desc" class="text-[11px] text-slate-500">Body Wash only</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-lg font-black text-[#0b57d0]">RM 20</span>
+                        <span class="text-lg font-black text-[#0b57d0]">RM20 - RM25</span>
                     </div>
                 </div>
 
@@ -223,7 +262,7 @@
                         <p data-i18n="wash_standard_desc" class="text-[11px] text-slate-500">Body Wash + Interior Cleaning</p>
                     </div>
                     <div class="text-right">
-                        <span class="text-lg font-black text-[#0b57d0]">RM 25</span>
+                        <span class="text-lg font-black text-[#0b57d0]">RM25 - RM30</span>
                     </div>
                 </div>
 
@@ -241,8 +280,7 @@
                     <h2 data-i18n="story_header" class="text-xs font-bold tracking-widest uppercase">The Story Behind ISHIcarwash</h2>
                 </div>
                 
-                <div id="story-paragraphs" class="space-y-3 text-slate-700 text-xs leading-relaxed">
-                    </div>
+                <div id="story-paragraphs" class="space-y-3 text-slate-700 text-xs leading-relaxed"></div>
             </section>
 
         </main>
@@ -267,11 +305,16 @@
                 btn_calendar_sub: "Check available timing",
                 btn_instagram: "Instagram Portfolio",
                 btn_instagram_sub: "Easy & quick references",
-                loyalty_header: "Additional Car Discount",
-                loyalty_save: "Save",
+                loyalty_header: "Extra Carwash Discount",
+                loyalty_save: "SAVE",
                 loyalty_badge_price: "RM 3 OFF",
                 loyalty_per_car: "Per Car!",
-                loyalty_desc: "Got multiple cars at home, or washing together with a neighbor? Secure your bookings for the <strong class=\"bg-[#ffcc00]/50 px-1 rounded text-black font-black\">same time & same location</strong> to unlock an immediate RM3 discount on the subsequent 2nd, 3rd, and 4th vehicles!",
+                loyalty_desc: "Got other cars at home? Lock in your savings immediately by routing your slots together.",
+                loyalty_cond_1: "SAME TIME",
+                loyalty_sub_1: "Back-to-back booking",
+                loyalty_cond_2: "SHARED HOUSE ONLY",
+                loyalty_sub_2: "Same compound setup",
+                loyalty_footer_note: "*Discount applies directly to the subsequent 2nd, 3rd, and 4th vehicles.",
                 local_zone: "Taman Len Seng",
                 area_only: "area only",
                 rate_badge_local: "Local Rate",
@@ -301,11 +344,16 @@
                 btn_calendar_sub: "在线查看可预约时段",
                 btn_instagram: "Instagram 作品集",
                 btn_instagram_sub: "快速参考",
-                loyalty_header: "多车组合优惠",
-                loyalty_save: ".",
-                loyalty_badge_price: "下辆节省 RM 3",
-                loyalty_per_car: "！",
-                loyalty_desc: "家里有多辆车，或者想和邻居一起洗？只要安排在<strong class=\"bg-[#ffcc00]/50 px-1 rounded text-black font-black\">同一时间、同一地点</strong>进行洗车，接下来的第 2、第 3 和第 4 辆车即可当场享有每辆 RM3 的现金折扣！",
+                loyalty_header: "多车额外组合特惠",
+                loyalty_save: "每辆立减",
+                loyalty_badge_price: "RM 3",
+                loyalty_per_car: "超划算",
+                loyalty_desc: "家里还有其他车子？只要一并安排洗车服务，即可锁定制定的专属现金减免优惠！",
+                loyalty_cond_1: "同一时间",
+                loyalty_sub_1: "连续接单清洗预约",
+                loyalty_cond_2: "仅限同户住宅",
+                loyalty_sub_2: "相同院子或同址范围",
+                loyalty_footer_note: "*优惠折扣将直接应用在接下来的第 2、第 3 和第 4 辆车子。",
                 local_zone: "Taman Len Seng",
                 area_only: "核心社区专属",
                 rate_badge_local: "本区特惠价",
@@ -318,8 +366,8 @@
                 pricing_philosophy: "<strong>我们的定价理念：</strong> 本企划旨在为本地社区创造最大价值。<br><br>不同区域的价格略有调整，仅为了合理补贴额外的车程时间与交通物流成本。欢迎随时通过 WhatsApp 联络我们确认具体覆盖范围！<br><br>*价格如有调整，恕不另行通知。",
                 story_header: "ISHIcarwash 背后的故事",
                 story_p1: "<strong>ISHIcarwash</strong> 的诞生并非为了在这个市场上多开一家普通的商业洗车铺。它纯粹是一个以社区为中心、围绕着<strong>“用心、细致与热忱”</strong>而建立的邻里互助企划。",
-                story_p2: "We believe your time, be it weekday or weekend, are precious, and your vehicle is a major investment. Traditional roadside washes are fast, but often inattentive. High-end detailing studios are safe, but travelling and time-constraint often remain barriers.",
-                story_p3: "本企划正是为了解决这个痛点而生。我们直接把专业服务带到您的家门口，省去一切昂贵的商业铺租成本，以最诚实、慢调的底层街坊价，为您提供发烧友级别的安全安全洗车服务。",
+                story_p2: "我们深知您的时间极其宝贵，且车辆本身就是一项巨大的资产投入。传统的街边快洗固然迅速，但施工往往不够严谨；而专业的高端汽车美容店虽然安全，可往返的时间和交通成本却常常令人却步。",
+                story_p3: "本企划正是为了解决这个痛点而生。我们直接把专业服务带到您的家门口，省去一切昂贵的商业铺租成本，以最诚实、慢调的底层街坊价，为您提供发烧友级别的安全洗车服务。",
                 story_p4: "“我们的目标从来不是追求庞大的洗车数量，而是建立在彼此信任和互相尊重的基础上，将真正高性价比的汽车护理体验带回给我们的邻里社区。”"
             },
             ms: {
@@ -335,11 +383,16 @@
                 btn_calendar_sub: "Semak masa slot yang kosong",
                 btn_instagram: "Portfolio Instagram",
                 btn_instagram_sub: "Rujukan mudah & gambar hasil kerja",
-                loyalty_header: "Diskaun Kenderaan Tambahan",
-                loyalty_save: "Jimat",
+                loyalty_header: "Diskaun Kereta Tambahan",
+                loyalty_save: "JIMAT",
                 loyalty_badge_price: "RM 3 OFF",
-                loyalty_per_car: "Per Kenderaan!",
-                loyalty_desc: "Ada banyak kereta di rumah, atau ingin cuci sekali dengan jiran sebelah? Tempah slot pada <strong class=\"bg-[#ffcc00]/50 px-1 rounded text-black font-black\">masa & lokasi yang sama</strong> untuk menikmati potongan diskaun serta-merta sebanyak RM3 bagi kereta ke-2, ke-3, dan ke-4!",
+                loyalty_per_car: "Per Kereta!",
+                loyalty_desc: "Ada kereta lain di rumah? Lock penjimatan anda dengan menggabungkan slot tempahan sekali jalan.",
+                loyalty_cond_1: "MASA SAMA",
+                loyalty_sub_1: "Tempahan berturut-turut",
+                loyalty_cond_2: "RUMAH KONGSI SAHAJA",
+                loyalty_sub_2: "Kawasan laman yang sama",
+                loyalty_footer_note: "*Potongan diskaun serta-merta dinikmati bagi kereta ke-2, ke-3, dan ke-4.",
                 local_zone: "Taman Len Seng",
                 area_only: "sahaja",
                 rate_badge_local: "Kadar Tempatan",
@@ -352,43 +405,9 @@
                 pricing_philosophy: "<strong>Filosofi Harga Kami:</strong> Projek ini bertujuan membawa nilai penjimatan maksima kepada komuniti setempat.<br><br>Kadar harga berbeza sedikit mengikut lokasi bagi menampung masa perjalanan & logistik tambahan. Sila hantar mesej WhatsApp kepada kami untuk mengesahkan liputan zon!<br><br>*Harga tertakluk kepada perubahan tanpa notis pemberitahuan.",
                 story_header: "Kisah Di Sebalik ISHIcarwash",
                 story_p1: "<strong>ISHIcarwash</strong> tidak bermula kerana komuniti memerlukan sebuah lagi perniagaan komersial biasa. Ia bermula sebagai projek berfokuskan komuniti yang dibina sepenuhnya atas dasar <strong>niat yang baik, ketelitian, dan matlamat yang jelas.</strong>",
-                story_p2: "Kami tahu masa anda, sama ada hari biasa atau hujung minggu, sangat berharga, and kenderaan anda merupakan pelaburan yang besar. Basuhan tepi jalan biasa memang cepat, tetapi kerap kali kurang cermat. Studio detailing kelas atasan pula selamat, namun isu perjalanan dan kekangan masa sentiasa menjadi penghalang.",
+                story_p2: "Kami tahu masa anda, sama ada hari biasa atau hujung minggu, sangat berharga, dan kenderaan anda merupakan pelaburan yang besar. Basuhan tepi jalan biasa memang cepat, tetapi kerap kali kurang cermat. Studio detailing kelas atasan pula selamat, namun isu perjalanan dan kekangan masa sentiasa menjadi penghalang.",
                 story_p3: "Projek ini merapatkan jurang tersebut. Dengan beroperasi secara setempat terus di depan rumah anda, kami memotong kos overhed komersial yang tinggi demi menawarkan basuhan gred peminat kereta yang selamat pada kadar harga asas yang jujur.",
                 story_p4: '"Matlamat kami bukanlah untuk memaksimumkan kuantiti basuhan; sebaliknya ia adalah untuk memberikan pulangan nilai kualiti terbaik kepada komuniti kita, dibina murni atas rasa saling percaya dan hormat."'
-            },
-            ta: {
-                tag_community: "சமூகத் திட்டம்",
-                hero_title: "உங்க இல்லத்திற்கே வரும் கார் வாஷ்",
-                hero_subtitle: "பயணமும் வரிசைகளும் தேவையில்லை, வாசலிலேயே சுலபமான சேவை.",
-                wax_badge: "இலவச இணைப்பு",
-                wax_title: "ஹைட்ரோஃபோபிக் மெழுகு சிகிச்சை",
-                wax_desc: "சிறந்த பளபளப்பு மற்றும் நீர் எதிர்ப்புத் திறனுக்காக ஜெர்மனியின் பிரீமியம் கோச் கெமி (KCX) பாதுகாப்புடன் ஒவ்வொரு சேவையும் நிறைவடைகிறது.",
-                btn_whatsapp: "வாட்ஸ்அப் அரட்டை",
-                btn_whatsapp_sub: "விரைவான விசாரணைகள் & முன்பதிவு",
-                btn_calendar: "கூகுள் காலண்டர்",
-                btn_calendar_sub: "கிடைக்கும் நேரத்தைச் சரிபார்க்கவும்",
-                btn_instagram: "இன்ஸ்டாகிராம் போர்ட்ஃபோலியோ",
-                btn_instagram_sub: "எளிதான மற்றும் விரைவான குறிப்புகள்",
-                loyalty_header: "கூடுதல் கார் தள்ளுபடி",
-                loyalty_save: "சேமிப்பு",
-                loyalty_badge_price: "RM 3 OFF",
-                loyalty_per_car: "ஒரு காருக்கு!",
-                loyalty_desc: "வீட்டில் பல கார்கள் உள்ளதா, அல்லது பக்கத்து வீட்டுக்காரருடன் சேர்ந்து கழுவ வேண்டுமா? <strong class=\"bg-[#ffcc00]/50 px-1 rounded text-black font-black\">ஒரே நேரம் மற்றும் ஒரே இடத்தில்</strong> உங்கள் முன்பதிவுகளைச் செய்து, அடுத்தடுத்த 2வது, 3வது மற்றும் 4வது வாகனங்களுக்கு உடனடியாக RM3 தள்ளுபடி பெறுங்கள்!",
-                local_zone: "தாமான் லென் செங்",
-                area_only: "பகுதிக்கு மட்டும்",
-                rate_badge_local: "உள்ளூர் கட்டணம்",
-                rate_badge_extended: "நீட்டப்பட்ட மண்டலம்",
-                extended_zone: "இதர தேர்ந்தெடுக்கப்பட்ட பகுதிகள்",
-                wash_saver: "சேவர் வாஷ்",
-                wash_saver_desc: "கார் வெளிப்புறம் மட்டும்",
-                wash_standard: "ஸ்டாண்டர்ட் வாஷ்",
-                wash_standard_desc: "கார் வெளிப்புறம் + உட்புற சுத்தம்",
-                pricing_philosophy: "<strong>எங்கள் விலை தத்துவம்:</strong> இந்த திட்டம் எங்கள் உள்ளூர் சமூகத்திற்கு அதிகபட்ச மதிப்பை வழங்குவதை நோக்கமாகக் கொண்டுள்ளது. <br><br>கூடுதல் பயண நேரம் மற்றும் தளவாடங்களை ஈடுசெய்ய இருப்பிடத்தைப் பொறுத்து கட்டணங்கள் சற்று மாறுபடும். கவரேஜ் விவரங்களை உறுதிப்படுத்த வாட்ஸ்அப் மூலம் எங்களை அழைக்கவும்!<br><br>*முன்னறிவிப்பின்றி விலைகள் மாற்றத்திற்கு உட்பட்டவை.",
-                story_header: "ISHIcarwash-ன் பின்னணி கதை",
-                story_p1: "<strong>ISHIcarwash</strong> ஒரு வணிக நோக்கம் கொண்ட நிறுவனமாக தொடங்கப்படவில்லை. இது முற்றிலும் <strong>நோக்கம், கவனிப்பு மற்றும் நல்விருப்பத்தை</strong> அடிப்படையாகக் கொண்ட ஒரு சமூக திட்டமாகும்.",
-                story_p2: "உங்கள் நேரம் மிகவும் மதிப்புமிக்கது மற்றும் உங்கள் வாகனம் ஒரு முக்கிய முதலீடு என்பதை நாங்கள் அறிவோம். சாதாரண சாலையோர வாஷ்கள் வேகமானவை, ஆனால் பெரும்பாலும் கவனக்குறைவாக இருக்கும். பிரீமியம் ஸ்டுடியோக்கள் பாதுகாப்பானவை, ஆனால் பயண நேரமும் காத்திருப்பும் பெரிய தடையாக அமைகின்றன.",
-                story_p3: "இந்த திட்டம் அந்த இடைவெளியைக் குறைக்கிறது. உங்கள் வீட்டு வாசலிலேயே சேவைகளை வழங்குவதன் மூலம், வணிகச் செலவுகளைக் குறைத்து, உங்களுக்கு நியாயமான, நிலையான கட்டணத்தில் சிறந்த பாதுகாப்பான வாஷ் சேவையை வழங்குகிறோம்.",
-                story_p4: '"எங்கள் நோக்கம் அதிக எண்ணிக்கையிலான வாடிக்கையாளர்களைப் பெறுவது அல்ல; பரஸ்பர நம்பிக்கை மற்றும் மரியாதையின் அடிப்படையில் எங்கள் சமூகத்திற்கு சிறந்த மதிப்பைத் தருவதே ஆகும்."'
             }
         };
 
